@@ -1,7 +1,5 @@
 class PlacesController < ApplicationController
-
   before_action :authenticate_user!, only: [:new, :create]
-
 
   def index
     @places = Place.all
@@ -20,11 +18,13 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
   end
 
+  def edit
+    @place = Place.find(params[:id])
+  end
+
   private
 
   def place_params
     params.require(:place).permit(:name, :description, :address)
   end
-
-
 end
