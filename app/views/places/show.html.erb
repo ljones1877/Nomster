@@ -1,11 +1,10 @@
 <br />
 <div class="booyah-box col-10 offset-1">
   <h1><%= @place.name %></h1>
+  <br /><br />
   <i><%= @place.address %></i>
-  <br/><br/>
   <p><%= @place.description %></p>
   
- 
   <% if @place.latitude.present? && @place.longitude.present? %>
 
   <script>
@@ -29,7 +28,7 @@
   <script asinc defer
   src="https//maps.googleapis.com/maps/api/js?key=AIzaSyA6s2gS_Gia7tUgk23dhsOkxPMVjZhjwvg&callback=initMap">
   </script>
-
+  <br />
   <div id="map"></div>
   
   <% end %>
