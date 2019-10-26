@@ -21,5 +21,13 @@
     </div>
   <% end %>
     
+  <%if place.photos.present? %>
+    <div class="col-12">
+        <% if place.photos.last.humanized_rating.present? %>
+          <b><%= place.photos.last.humanized_rating %></b> -
+        <% end %>
+    </div>
+  <% end %>
+    
   </div>
 <% end %>

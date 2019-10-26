@@ -1,4 +1,8 @@
 class Photo < ApplicationRecord
   belongs_to :user
-  has_many :photos 
+  belongs_to :place 
+
+def humanized_rating
+    RATINGS.invert[self.rating]
+  end
 end

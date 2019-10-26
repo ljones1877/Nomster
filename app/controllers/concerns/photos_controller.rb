@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @place = Place.find(params[:place_id])
+    @photos = Place.find(params[:place_id])
     @place.photos.create(photos_params.merge(user: current_user))
     redirect_to place_path(@place)
   end
@@ -10,7 +10,7 @@ class PhotosController < ApplicationController
 
   private
 
-  def comment_params
-    params.require(:comment).permit(:message, :rating)
+  def photos_params
+    params.require(:photos).permit(:caption)
   end
 end

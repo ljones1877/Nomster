@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  belongs_to :user
   belongs_to :place
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
