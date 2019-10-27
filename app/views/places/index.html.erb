@@ -24,10 +24,10 @@
   <% if place.photos.present? %>
    <div class="col-12">
         <blockquote>
-          <% if place.photos.last.humanized_rating.present? %>
-            <b><%= place.photos.last.humanized_rating %></b> -
+          <% if place.photos.last.humanized_caption.present? %>
+            <b><%= place.photos.last.humanized_caption %></b> -
           <% end %>
-          <%= place.photos.last.caption %>
+          <%= place.photos.last.picture %>
           <small><%= place.photos.last.user.email %></small>
         </blockquote>
    </div>

@@ -108,6 +108,7 @@
 <div class ="clear"></div> 
 <% simple_form_for @photo, url: place_photos_path(@place) do |f| %>
   <%= f.input :caption %>
+  <%= f.input :picture %>
   <%= f.submit "Add a Photo", class: 'btn btn-primary' %>
 <% end %>
 
@@ -117,10 +118,11 @@
   <% @place.photos.each do |photo| %>
     <div class="col-12 col-sm-6">
       <blockquote>
-        <% if photo.humanized_rating.present? %>
-          <b><%= photo.humanized_rating %></b> -
+        <% if photo.humanized_caption.present? %>
+          <b><%= photo.humanized_caption %></b> -
         <% end %>
         <%= photo.caption %>
+        <%= photo.picture %>
         <small><%= photo.user.email %></small>
       </blockquote>
    </div>
@@ -146,6 +148,7 @@
       <% simple_form_for @photo, url: place_photos_path(@place) do |f| %>
         <div class="modal-body">
           <%= f.input :caption %>
+          <%= f.input :picture %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -157,9 +160,7 @@
 </div>
 
 
-<div class="col-10 offset-1">
-  <h1 class="float-left">Photos</h1>
-  <!-- Button trigger modal -->
+<div class="col-10 offset-1">  <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
   Add a Photo
   </button>
