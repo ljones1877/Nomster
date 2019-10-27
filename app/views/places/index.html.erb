@@ -21,13 +21,18 @@
     </div>
   <% end %>
     
-  <%if place.photos.present? %>
-    <div class="col-12">
-        <% if place.photos.last.humanized_rating.present? %>
-          <b><%= place.photos.last.humanized_rating %></b> -
-        <% end %>
-    </div>
-  <% end %>
-    
+  <% if place.photos.present? %>
+   <div class="col-12">
+        <blockquote>
+          <% if place.photos.last.humanized_rating.present? %>
+            <b><%= place.photos.last.humanized_rating %></b> -
+          <% end %>
+          <%= place.photos.last.caption %>
+          <small><%= place.photos.last.user.email %></small>
+        </blockquote>
+   </div>
+  <% end %> 
+
+
   </div>
 <% end %>
