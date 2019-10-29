@@ -3,13 +3,19 @@
     <h1><%= link_to place.name, place_path(place) %></h1><br />
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p><br />
-
-
     <% if place.user.present? %>
       <small><%= place.user.email %></small>
     <% end %>
 
-  <%if place.comments.present? %>
+  <div class="col-12">
+    <% if place.photos.present? %>
+      <div>
+        <%= image_tag place.photos.last.picture.to_s, class: "img-fluid" %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if place.comments.present? %>
     <div class="col-12">
       <blockquote>
         <% if place.comments.last.humanized_rating.present? %>
@@ -20,19 +26,5 @@
       </blockquote>
     </div>
   <% end %>
-    
-  <% if place.photos.present? %>
-   <div class="col-12">
-        <blockquote>
-          <% if place.photos.last.humanized_caption.present? %>
-            <b><%= place.photos.last.humanized_caption %></b> -
-          <% end %>
-          <%= place.photos.last.picture %>
-          <small><%= place.photos.last.user.email %></small>
-        </blockquote>
-   </div>
-  <% end %> 
-
-
   </div>
 <% end %>
