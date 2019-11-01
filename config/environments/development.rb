@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.action_mailer.delivery_method = :test
   # config.action_mailer.default_url_options = :smtp
 
   # config.action_mailer.smtp_settings = {
@@ -7,11 +8,11 @@ Rails.application.configure do
   #  domain: "example.com",
   #  authentication: "plain",
   #  enable_starttls_auto: true,
-  #  user_name: ENV['jlorin7@gmail.com'],
-  #  password: ENV['Xbox1877!']
+  #  user_name: ENV['GMAIL_ADDRESS'],
+  #  password: ENV['GMAIL_PASSWORD']
   # }
 
-  config.action_mailer.default_url_options = :test
+   config.action_mailer.default_url_options = { host: 'localhost:3030' } 
 
   # Settings specified here will take precedence over those in config/application.rb.
 
