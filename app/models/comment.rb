@@ -20,4 +20,3 @@ class Comment < ApplicationRecord
       NotificationMailer.comment_added(self).deliver_now
   end
 end
-© 2019 GitHub, Inc.
